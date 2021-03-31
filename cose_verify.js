@@ -34,13 +34,7 @@ data = base45.decode(data)
 // 78 DA - Best Compression 
 data = zlib.inflate(data)
 
-//var data = JSON.parse(buffer.slice(0,len))
-//const headers = {
-//  'p': {'alg': 'ES256', 'kid': keyID }, 
-//  'u': {}
-//};
-
-const verifier = { 'key': { 'x': keyX, 'y': keyY } };
+const verifier = { 'key': { 'x': keyX, 'y': keyY,  'kid': keyID } };
 
 cose.sign.verify(data,verifier)
 .then((buf) => {
