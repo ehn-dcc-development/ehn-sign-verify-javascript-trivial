@@ -5,8 +5,7 @@ const { PEM, ASN1, Class, Tag } = require('@fidm/asn1')
 const { Certificate, PrivateKey } = require('@fidm/x509')
 const zlib = require('pako');
 var cbor = require('cbor');
-const base45 = require('base45');
-
+const base45 = require('base45-js');
 
 const cert = Certificate.fromPEM(fs.readFileSync('./dsc-worker.pem'))
 var bytes = new Uint8Array(cert.raw);
