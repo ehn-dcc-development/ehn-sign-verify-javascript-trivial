@@ -1,5 +1,8 @@
 # Trivial/rudimentary eHN-simplified implementation
 
+Brought in line with 1.00 of
+	https://github.com/ehn-digital-green-development/hcert-spec/blob/main/hcert_spec.md
+
 For round-trip testing of ```cose_sign.js``` and ```cose_verify.js``` take some
 JSON, e.g. ```{ "Foo" : "Bar }```, CBOR package, COSE sign, compress and base45
 convert it for use in a QR:

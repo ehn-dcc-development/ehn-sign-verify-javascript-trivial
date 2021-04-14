@@ -26,13 +26,23 @@ const buffer = Buffer.alloc(4_096);
 var len = fs.readSync(process.stdin.fd, buffer, 0, buffer.length)
 var data = buffer.slice(0,len).toString('ASCII')
 
+
+// Strip off the HC1 header if present
+//
+if (data.startsWith('HC1')) {
+  data = data.substring(3)
+};
+
 data = base45.decode(data)
 
 // Zlib magic headers:
 // 78 01 - No Compression/low
 // 78 9C - Default Compression
 // 78 DA - Best Compression 
-data = zlib.inflate(data)
+//
+if (data[0] == 0x78) {
+   data = zlib.inflate(data)
+}
 
 const verifier = { 'key': { 'x': keyX, 'y': keyY,  'kid': keyID } };
 
