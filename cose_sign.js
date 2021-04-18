@@ -41,7 +41,7 @@ cose.sign.create(
   signer)
 .then((buf) => {
   buf = zlib.deflate(buf)
-  buf = 'HC1' + base45.encode(buf)
+  buf = 'HC1:' + base45.encode(buf)
   process.stdout.write(Buffer.from(buf).toString())
 }).catch((error) => {
   console.log(error);

@@ -27,7 +27,10 @@ convert it for use in a QR:
 
 Or the larger example:
 
-```echo '{ "Foo":1, "Bar":{ "Field1": "a value",   "integer":1212112121 }}' |  npm run sign | npm run verify```
+```
+    echo '{ "Foo":1, "Bar":{ "Field1": "a value",   "integer":1212112121 }}' |  npm run sign > barcode
+    cat barcode | | npm run verify
+```
 
 Which should output:
 
