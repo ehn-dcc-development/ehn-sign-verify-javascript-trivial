@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "EUVac demo in Javascript",
   "scripts": {
-    "sign": "node cose_sign.js",
-    "verify": "node cose_verify.js"
+    "sign": "./bin/sign",
+    "verify": "./bin/verify"
   },
   "license": "EUPL",
   "dependencies": {

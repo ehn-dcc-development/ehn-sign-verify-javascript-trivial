@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const sign = require("../src/sign");
+const streamToPromise = require("../src/stream-to-promise");
+
+const [_0, _1, certPemLocation, privateKeyLocation] = process.argv;
+
+const certPEM = fs.readFileSync(certPemLocation);
+const privateKey = fs.readFileSync(privateKeyLocation);
+
+streamToPromise(process.stdin)
+  .then((data) => sign(certPEM, privateKey, JSON.parse(data)))
+  .then((str) => process.stdout.write(str));

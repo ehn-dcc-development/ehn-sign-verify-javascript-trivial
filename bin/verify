@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const verify = require("../src/verify");
+const streamToPromise = require("../src/stream-to-promise");
+
+const [_0, _1, certPemLocation] = process.argv;
+
+const certPEM = fs.readFileSync(certPemLocation);
+
+streamToPromise(process.stdin)
+  .then((data) => verify(certPEM, data.toString("ASCII")))
+  .then((res) => process.stdout.write(JSON.stringify(res, null, 5)));
