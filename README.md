@@ -22,14 +22,14 @@ convert it for use in a QR:
 
 1. Generate the CSCA and DSC with ```./gen-csca-dsc.sh```	
 1. Ensure the dependencies are installed: ```npm install```
-1. Run the command: ```echo "{'A': 1234}" | npm run sign | npm run verify```
+1. Run the command: ```echo '{"A": 1234}' | npm run sign | npm run verify```
 1. You should see the output: ```{"A": 1234}```
 
 Or the larger example:
 
 ```
     echo '{ "Foo":1, "Bar":{ "Field1": "a value",   "integer":1212112121 }}' |  npm --silent run sign > barcode
-    cat barcode | | npm run verify
+    cat barcode | npm run verify
 ```
 
 Which should output:
