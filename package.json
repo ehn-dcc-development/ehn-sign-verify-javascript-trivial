@@ -4,7 +4,8 @@
   "description": "EUVac demo in Javascript",
   "scripts": {
     "sign": "node cose_sign.js",
-    "verify": "node cose_verify.js"
+    "verify": "node cose_verify.js",
+    "verifynosign": "node cose_verify.js --ignore-signature"
   },
   "license": "EUPL",
   "dependencies": {
