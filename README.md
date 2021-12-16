@@ -8,7 +8,7 @@ JSON, e.g. ```{ "Foo" : "Bar }```, CBOR package, COSE sign, compress and base45
 convert it for use in a QR:
 
 1. COSE sign
-   1. compact the JSOn into CBOR
+   1. compact the JSON into CBOR
    1. sign and package as a COSE message
    1. ZLIB compress
    1. Base45 encode 
